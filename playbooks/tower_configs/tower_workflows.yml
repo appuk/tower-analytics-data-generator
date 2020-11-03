@@ -1,37 +1,138 @@
 ---
 tower_workflows:
-  - name: Simple workflow schema
-    description: a basic workflow
-    extra_vars: {}
-    survey_enabled: false
-    allow_simultaneous: false
-    ask_variables_on_launch: false
-    inventory:
-    limit:
-    scm_branch:
-    ask_inventory_on_launch: false
-    ask_scm_branch_on_launch: false
-    ask_limit_on_launch: false
+  - name: WF_Pass
     organization: Default
-    schedules: []
     workflow_nodes:
-      - all_parents_must_converge: false
-        identifier: node101
-        unified_job_template: RHVM-01
-        credentials: []
-        success_nodes:
-          - node201
-        failure_nodes: []
-        always_nodes: []
-      - all_parents_must_converge: false
-        identifier: node201
-        unified_job_template: test-template-1
-        credentials: []
+      - identifier: failing_node
+        unified_job_template: JT_always_fail
+        always_nodes:
+          - passing_node
         success_nodes: []
         failure_nodes: []
+      - identifier: passing_node
+        unified_job_template: JT_non_standalone
         always_nodes: []
-    notification_templates_started: []
-    notification_templates_success: []
-    notification_templates_error: []
-    notification_templates_approvals: []
-    survey_spec: {}
+        success_nodes: []
+        failure_nodes: []
+  - name: WF_Fail
+    organization: Default
+    workflow_nodes:
+      - identifier: failing_node
+        unified_job_template: JT_always_fail
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+  - name: WF_non_root
+    description: This WF is ran from within another WF, don't run this directly
+    organization: Default
+    workflow_nodes:
+      - identifier: failing_node
+        unified_job_template: JT_always_fail
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+  - name: WF_nested
+    organization: Default
+    workflow_nodes:
+      - identifier: failing_workflow
+        unified_job_template: WF_non_root
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+  - name: WF_multiple_failing_steps
+    organization: Default
+    workflow_nodes:
+      - identifier: failing_node_1
+        unified_job_template: JT_always_fail
+        always_nodes:
+          - failing_node_2
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_2
+        unified_job_template: JT_always_fail
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+  - name: WF_all
+    organization: Default
+    workflow_nodes:
+      - identifier: passing_node_1
+        unified_job_template: JT_pass
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_1
+        unified_job_template: JT_always_fail
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_2
+        unified_job_template: JT_random_fail
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_3
+        unified_job_template: JT_fail_based_on_hostname
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: passing_node_4
+        unified_job_template: JT_roles
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_5
+        unified_job_template: JT_collection_with_role
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_6
+        unified_job_template: JT_fail_before_tasks
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: passing_node_7
+        unified_job_template: JT_with_failed_task_yet_job_passes
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_8
+        unified_job_template: JT_with_handlers
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_9
+        unified_job_template: JT_with_multiple_failed_tasks
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_10
+        unified_job_template: JT_with_deprecation_warning
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: passing_node_11
+        unified_job_template: WF_Pass
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_12
+        unified_job_template: WF_Fail
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_13
+        unified_job_template: WF_nested
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_14
+        unified_job_template: WF_multiple_failing_steps
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: passing_node_15
+        unified_job_template: JT_pass_different_org
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []

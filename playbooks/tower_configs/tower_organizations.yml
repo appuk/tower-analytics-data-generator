@@ -1,4 +1,4 @@
 ---
 tower_organizations:
-  - name: Satellite
   - name: Default
+  - name: org1

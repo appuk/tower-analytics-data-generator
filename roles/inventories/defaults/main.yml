@@ -1,5 +1,0 @@
----
-tower_hostname: ""
-tower_verify_ssl: false
-tower_secrets: false
-tower_username: ""

@@ -2,6 +2,8 @@
 - name: Playbook to configure ansible tower post installation
   hosts: localhost
   connection: local
+  vars:
+   tower_validate_certs: false
   pre_tasks:
     - name: Include vars from tower_configs directory
       include_vars:

@@ -53,6 +53,31 @@ tower_workflows:
         always_nodes: []
         success_nodes: []
         failure_nodes: []
+  - name: WF_approval_node_timeout
+    organization: Default
+    workflow_nodes:
+      - identifier: approval-node
+        approval_node:
+          description: "Time out approval node"
+          name: approval-node
+          timeout: 1
+  - name: WF_approval_node_pass
+    organization: Default
+    workflow_nodes:
+      - identifier: approval-node-pass
+        approval_node:
+          description: "Time out approval node"
+          name: approval-node-pass
+          timeout: 1
+        always_nodes: []
+        success_nodes: []
+        failure_nodes:
+          - jt_pass
+      - identifier: jt_pass
+        unified_job_template: JT_pass
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
   - name: WF_all
     organization: Default
     workflow_nodes:
@@ -133,6 +158,21 @@ tower_workflows:
         failure_nodes: []
       - identifier: passing_node_15
         unified_job_template: JT_pass_different_org
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_15
+        unified_job_template: JT_multiple_host_status
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_16
+        unified_job_template: WF_approval_node_timeout
+        always_nodes: []
+        success_nodes: []
+        failure_nodes: []
+      - identifier: failing_node_17
+        unified_job_template: WF_approval_node_pass
         always_nodes: []
         success_nodes: []
         failure_nodes: []

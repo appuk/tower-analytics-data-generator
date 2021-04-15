@@ -30,6 +30,12 @@ tower_templates:
     project: Test Playbooks
     playbook: analytics_playbooks/test_fail_based_on_hostname.yml
     verbosity: 2
+  - name: JT_multiple_host_status
+    job_type: run
+    inventory: localhost multiple hosts
+    project: Test Playbooks
+    playbook: analytics_playbooks/test_various_hosts_status.yml
+    verbosity: 2
   - name: JT_roles
     job_type: run
     inventory: localhost single host

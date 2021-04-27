@@ -2,6 +2,7 @@
 tower_workflows:
   - name: WF_Pass
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: failing_node
         unified_job_template: JT_always_fail
@@ -16,6 +17,7 @@ tower_workflows:
         failure_nodes: []
   - name: WF_Fail
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: failing_node
         unified_job_template: JT_always_fail
@@ -25,6 +27,7 @@ tower_workflows:
   - name: WF_non_root
     description: This WF is ran from within another WF, don't run this directly
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: failing_node
         unified_job_template: JT_always_fail
@@ -33,6 +36,7 @@ tower_workflows:
         failure_nodes: []
   - name: WF_nested
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: failing_workflow
         unified_job_template: WF_non_root
@@ -41,6 +45,7 @@ tower_workflows:
         failure_nodes: []
   - name: WF_multiple_failing_steps
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: failing_node_1
         unified_job_template: JT_always_fail
@@ -55,6 +60,7 @@ tower_workflows:
         failure_nodes: []
   - name: WF_approval_node_timeout
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: approval-node
         approval_node:
@@ -63,6 +69,7 @@ tower_workflows:
           timeout: 1
   - name: WF_approval_node_pass
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: approval-node-pass
         approval_node:
@@ -80,6 +87,7 @@ tower_workflows:
         failure_nodes: []
   - name: WF_all
     organization: Default
+    state: present
     workflow_nodes:
       - identifier: passing_node_1
         unified_job_template: JT_pass

@@ -43,21 +43,6 @@ tower_workflows:
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-  - name: WF_multiple_failing_steps
-    organization: Default
-    state: present
-    workflow_nodes:
-      - identifier: failing_node_1
-        unified_job_template: JT_always_fail
-        always_nodes:
-          - failing_node_2
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_2
-        unified_job_template: JT_always_fail
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
   - name: WF_approval_node_timeout
     organization: Default
     state: present
@@ -89,92 +74,47 @@ tower_workflows:
     organization: Default
     state: present
     workflow_nodes:
-      - identifier: passing_node_1
-        unified_job_template: JT_pass
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_1
-        unified_job_template: JT_always_fail
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_2
-        unified_job_template: JT_random_fail
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_3
-        unified_job_template: JT_fail_based_on_hostname
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: passing_node_4
+      - identifier: JT_roles
         unified_job_template: JT_roles
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_5
+      - identifier: JT_collection_with_role
         unified_job_template: JT_collection_with_role
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_6
-        unified_job_template: JT_fail_before_tasks
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: passing_node_7
+      - identifier: JT_with_failed_task_yet_job_passes
         unified_job_template: JT_with_failed_task_yet_job_passes
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_8
-        unified_job_template: JT_with_handlers
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_9
+      - identifier: JT_with_multiple_failed_tasks
         unified_job_template: JT_with_multiple_failed_tasks
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_10
+      - identifier: JT_with_deprecation_warning
         unified_job_template: JT_with_deprecation_warning
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: passing_node_11
-        unified_job_template: WF_Pass
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_12
-        unified_job_template: WF_Fail
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: failing_node_13
+      - identifier: WF_nested
         unified_job_template: WF_nested
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_14
-        unified_job_template: WF_multiple_failing_steps
-        always_nodes: []
-        success_nodes: []
-        failure_nodes: []
-      - identifier: passing_node_15
+      - identifier: JT_pass_different_org
         unified_job_template: JT_pass_different_org
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_15
+      - identifier: JT_multiple_host_status
         unified_job_template: JT_multiple_host_status
         always_nodes: []
         success_nodes: []
         failure_nodes: []
-      - identifier: failing_node_16
+      - identifier: WF_approval_node_timeout
         unified_job_template: WF_approval_node_timeout
         always_nodes: []
         success_nodes: []

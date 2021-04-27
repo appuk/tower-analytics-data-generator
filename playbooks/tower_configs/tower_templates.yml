@@ -16,20 +16,6 @@ tower_templates:
     project: Test Playbooks
     playbook: fail.yml
     verbosity: 2
-  - name: JT_random_fail
-    job_type: run
-    inventory: localhost single host
-    project: Test Playbooks
-    playbook: fail_unless.yml
-    extra_vars: 
-      fail: ansible_date_time.epoch|int % 2 == 0
-    verbosity: 2
-  - name: JT_fail_based_on_hostname
-    job_type: run
-    inventory: localhost multiple hosts
-    project: Test Playbooks
-    playbook: analytics_playbooks/test_fail_based_on_hostname.yml
-    verbosity: 2
   - name: JT_multiple_host_status
     job_type: run
     inventory: localhost multiple hosts
@@ -48,23 +34,11 @@ tower_templates:
     project: Test Playbooks
     playbook: analytics_playbooks/test_collection_with_role.yml
     verbosity: 2
-  - name: JT_fail_before_tasks
-    job_type: run
-    inventory: localhost single host
-    project: Test Playbooks
-    playbook: analytics_playbooks/test_fail_before_tasks.yml
-    verbosity: 2
   - name: JT_with_failed_task_yet_job_passes
     job_type: run
     inventory: localhost single host
     project: Test Playbooks
     playbook: analytics_playbooks/test_fail_with_ignore_errors.yml
-    verbosity: 2
-  - name: JT_with_handlers
-    job_type: run
-    inventory: localhost single host
-    project: Test Playbooks
-    playbook: analytics_playbooks/test_fail_with_handler.yml
     verbosity: 2
   - name: JT_with_multiple_failed_tasks
     job_type: run

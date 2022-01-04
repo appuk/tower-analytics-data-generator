@@ -1,5 +1,5 @@
 ---
-# tower_groups:
+# controller_groups:
 #   - name: group1
 #     inventory: satlab-admin-inventory
 #     variables:

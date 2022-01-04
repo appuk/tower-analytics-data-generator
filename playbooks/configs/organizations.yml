@@ -1,4 +1,4 @@
 ---
-tower_organizations:
+controller_organizations:
   - name: Default
   - name: org1

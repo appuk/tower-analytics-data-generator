@@ -1,5 +1,5 @@
 ---
-tower_projects:
+controller_projects:
   - name: Test Playbooks
     scm_type: git
     scm_url: https://github.com/appuk/test-playbooks.git

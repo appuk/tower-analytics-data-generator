@@ -1,5 +1,5 @@
 ---
-tower_schedules:
+controller_schedules:
   - name: Run jobs daily
     description: Runs a workflow that basically runs all the other templates
     unified_job_template: WF_all

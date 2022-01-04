@@ -1,7 +1,8 @@
 # Tower Analytics Data Generator
 
 This repo uses roles from Ansible-CoP's Tower_Configuration collection to configure Tower to have specific resources. 
-
+You have to run following command to install the collections:
+`ansible-galaxy collection install -r collections/requirements.yml -p collections`
 
 ## Example Usage
 Before running the configure_tower.yml, Define all resources in respective files in tower_configs dir. eg: tower_projects.yml, tower_templates.yml.

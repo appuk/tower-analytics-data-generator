@@ -1,9 +1,9 @@
 ---
-tower_workflows:
+controller_workflows:
   - name: WF_Pass
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: failing_node
         unified_job_template: JT_always_fail
         always_nodes:
@@ -18,7 +18,7 @@ tower_workflows:
   - name: WF_Fail
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: failing_node
         unified_job_template: JT_always_fail
         always_nodes: []
@@ -28,7 +28,7 @@ tower_workflows:
     description: This WF is ran from within another WF, don't run this directly
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: failing_node
         unified_job_template: JT_always_fail
         always_nodes: []
@@ -37,7 +37,7 @@ tower_workflows:
   - name: WF_nested
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: failing_workflow
         unified_job_template: WF_non_root
         always_nodes: []
@@ -46,7 +46,7 @@ tower_workflows:
   - name: WF_approval_node_timeout
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: approval-node
         approval_node:
           description: "Time out approval node"
@@ -55,7 +55,7 @@ tower_workflows:
   - name: WF_approval_node_pass
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: approval-node-pass
         approval_node:
           description: "Time out approval node"
@@ -73,7 +73,7 @@ tower_workflows:
   - name: WF_all
     organization: Default
     state: present
-    workflow_nodes:
+    simplified_workflow_nodes:
       - identifier: JT_roles
         unified_job_template: JT_roles
         always_nodes: []
@@ -124,3 +124,4 @@ tower_workflows:
         always_nodes: []
         success_nodes: []
         failure_nodes: []
+

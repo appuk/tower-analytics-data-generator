@@ -1,5 +1,5 @@
 ---
-tower_settings:
+controller_settings:
   settings:
     # AUTH_LDAP_BIND_PASSWORD: "password"
     # "{{ tower_hostname }}"

@@ -1,5 +1,5 @@
 ---
-tower_inventories:
+controller_inventories:
   - name: localhost single host
     organization: Default
     description: contains a localhost host
